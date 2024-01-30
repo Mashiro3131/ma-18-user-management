@@ -124,3 +124,59 @@ Revoyez les droits pour en laisser le moins possible à la racine du disque D
     └── Compatbilité
         └── Isabelle Crausaz
 ```
+
+# Option du menu powershell
+
+
+# Créer un nouveau disque D: nommé DATA
+New-Partition -DiskNumber 0 -UseMaximumSize -AssignDriveLetter -DriveLetter D
+Format-Volume -DriveLetter D -FileSystem NTFS -NewFileSystemLabel "DATA"
+
+
+Write-Host "Menu d'options:"
+Write-Host "1. Créer un disque D:\ nommé DATA sur le SRV181"
+Write-Host "2. Créer la structure de dossiers correspondante"
+Write-Host "3. Créer les dossiers de service pour chaque département et sous-département"
+Write-Host "4. Préparer les dossiers 'Profils' et 'Utilisateurs' dans la structure"
+Write-Host "5. Ajouter les profils itinérants dans le dossier 'Profils'"
+Write-Host "6. Créer le dossier 'Utilisateurs' et mapper le lecteur P:\"
+
+$option = Read-Host "Sélectionnez une option (1-6)"
+
+switch ($option) {
+    1 {
+        # Option 1: Créer un disque D:\ nommé DATA sur le SRV181
+        New-Partition -DiskNumber 0 -UseMaximumSize -AssignDriveLetter -DriveLetter D
+        Format-Volume -DriveLetter D -FileSystem NTFS -NewFileSystemLabel "DATA"
+        break
+    }
+    2 {
+        # Option 2: Créer la structure de dossiers correspondante
+        # Code pour créer la structure de dossiers ici
+        break
+    }
+    3 {
+        # Option 3: Créer les dossiers de service pour chaque département et sous-département
+        # Code pour créer les dossiers de service ici
+        break
+    }
+    4 {
+        # Option 4: Préparer les dossiers 'Profils' et 'Utilisateurs' dans la structure
+        # Code pour préparer les dossiers 'Profils' et 'Utilisateurs' ici
+        break
+    }
+    5 {
+        # Option 5: Ajouter les profils itinérants dans le dossier 'Profils'
+        # Code pour ajouter les profils itinérants ici
+        break
+    }
+    6 {
+        # Option 6: Créer le dossier 'Utilisateurs' et mapper le lecteur P:\
+        # Code pour créer le dossier 'Utilisateurs' et mapper le lecteur P:\ ici
+        break
+    }
+    default {
+        Write-Host "Option invalide. Veuillez sélectionner une option valide."
+        break
+    }
+}

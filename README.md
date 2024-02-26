@@ -12,7 +12,7 @@ Apprendre à créer un nouvel utilisateur dans Active Directory, en spécifiant 
 
 ### Solution
 ```powershell
-New-ADUser -Name "Nico Mengisen" -GivenName "Nico" -Surname "Martin" -SamAccountName "nico.mengisen" -UserPrincipalName "nico.mengisen@leDomaine.ch" -AccountPassword (ConvertTo-SecureString -AsPlainText "Start1234!" -Force) -Enabled $true -PasswordNeverExpires $false
+New-ADUser -Name "Nico Mengisen" -GivenName "Nico" -Surname "Mengisen" -SamAccountName "nico.mengisen" -UserPrincipalName "nico.mengisen@leDomaine.ch" -AccountPassword (ConvertTo-SecureString -AsPlainText "Start1234!" -Force) -Enabled $true -PasswordNeverExpires $false
 ```
 ## Exercice 2: Modification d'Attributs d'un Utilisateur
 

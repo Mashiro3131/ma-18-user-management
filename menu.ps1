@@ -6,7 +6,7 @@ while ($MyMenu) {
     write-host "#               3: Create Sub OU            #"
     write-host "#                              x: exit                           #"
     write-host "------------------------------------------------------------------"
-    $MenuChoice = Read-Host "Choose an option:"
+    $MenuChoice = read-host "Choose an option:"
     switch ($MenuChoice) {
         
         # Partition Disk
@@ -19,7 +19,7 @@ while ($MyMenu) {
         'x'{$MyMenu = $false}
         
         default {
-            Write-Host "Invalid choice"-ForegroundColor Red
+            write-host "Invalid choice"-ForegroundColor Red
         }
-
+    }
 }

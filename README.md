@@ -1,6 +1,44 @@
 # Gestion des utilisateurs 
 
-# TODO
+# Exercices
+
+## Exercice 1: Création d'un Utilisateur dans Active Directory
+
+### Objectif
+Apprendre à créer un nouvel utilisateur dans Active Directory, en spécifiant les informations de base et en activant le compte.
+
+### Consigne
+- Utilisez PowerShell pour créer un nouvel utilisateur nommé Nico Mengisen. L'identifiant de l'utilisateur (SamAccountName) doit être nico.mengisen, et son mot de passe initial doit être Start1234!. Le compte utilisateur doit être activé dès sa création.
+
+### Solution
+```powershell
+New-ADUser -Name "Nico Mengisen" -GivenName "Nico" -Surname "Martin" -SamAccountName "nico.mengisen" -UserPrincipalName "nico.mengisen@leDomaine.ch" -AccountPassword (ConvertTo-SecureString -AsPlainText "Start1234!" -Force) -Enabled $true -PasswordNeverExpires $false
+```
+## Exercice 2: Modification d'Attributs d'un Utilisateur
+
+### Objectif
+Maîtriser la modification d'attributs pour un utilisateur existant dans Active Directory.
+
+### Consigne
+- Modifiez l'adresse e-mail et le titre de l'emploi de l'utilisateur nico.mengisen. La nouvelle adresse e-mail doit être a.mengisen@votreDomaine.ch et le titre Ingénieur Système.
+
+### Solution
+```powershell
+Set-ADUser -Identity "nico.mengisen" -EmailAddress "n.mengisen@votreDomaine.ch" -Title "Ingénieur Système"
+```
+## Exercice 3: Réinitialisation du Mot de Passe d'un Utilisateur
+### Objectif
+- Apprendre à réinitialiser et à imposer le changement de mot de passe à la prochaine connexion de l'utilisateur.
+
+### Consigne
+- Écrivez un script PowerShell pour réinitialiser le mot de passe de l'utilisateur nico.mengisen à NewPa$$w0rd2024!. L'utilisateur doit être contraint de changer ce mot de passe lors de sa prochaine connexion.
+
+### Solution
+```powershell
+Set-ADAccountPassword -Identity "nico.mengisen" -Reset -NewPassword (ConvertTo-SecureString -AsPlainText "NewPassword2024!" -Force) -PassThru | Set-ADUser -ChangePasswordAtLogon $true
+```
+
+# TODO (En cours)
 - Créer une VM avec Windows Server 2022 (MA18-SRV1)
 Ajouter un utilisateur
 
